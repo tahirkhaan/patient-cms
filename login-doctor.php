@@ -2,12 +2,9 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Sign Up Form with live validation</title>
-  
-  
-  
-      <link rel="stylesheet" href="css/style.css">
+  <title>Login Doctor</title>
 
+      <link rel="stylesheet" href="css/style.css">
   
 </head>
 
