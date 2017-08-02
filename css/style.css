@@ -3,7 +3,10 @@ body {
   font-family: sans-serif;
   font-size: 10px;
 }
-
+        /*Box CSS*/
+.box{
+    margin-top: 110px;
+}
 form {
   background: #fff;
   padding: 4em 4em 2em;

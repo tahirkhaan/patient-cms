@@ -13,7 +13,7 @@
 
 <body>
   	
-
+<div class="box">
 <form action="#" method="post">
   <h2>Doctor Login</h2>
 		<p>
@@ -29,6 +29,7 @@
 			<input type="submit" value="Login" id="submit">
 		</p>
 	</form>
+	</div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <script src="js/index.js"></script>

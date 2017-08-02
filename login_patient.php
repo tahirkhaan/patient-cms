@@ -3,17 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Sign Up Form with live validation</title>
-  
-  
-  
-      <link rel="stylesheet" href="css/style.css">
-
-  
+  	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   	
-
+<div class="box">
 <form action="#" method="post">
   <h2>Patient Login</h2>
 		<p>
@@ -29,6 +24,7 @@
 			<input type="submit" value="Login" id="submit">
 		</p>
 	</form>
+	</div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <script src="js/index.js"></script>
