@@ -96,6 +96,28 @@ form label.floatLabel {
 
 /*main page*/
 
-.ds-btn li{ list-style:none; float:left; padding:10px; }
-.ds-btn li a span{padding-left:15px;padding-right:5px;width:100%;display:inline-block; text-align:left;}
-.ds-btn li a span small{width:100%; display:inline-block; text-align:left;}
+.container{
+  background-color: #fff;
+  margin-top: 70px;
+  border-radius: 14px;
+}
+.buttons{
+  max-width: 40%;
+
+ margin: 40px auto 0;
+
+  border-radius: 2px;
+  padding-bottom: 40px;
+
+}
+.btn-huge{
+    padding-top:20px;
+    padding-bottom:30px;
+    background: rgba(148, 186, 101, 0.7);
+  box-shadow: 0 3px 0 0 rgba(123, 163, 73, 0.7);
+  cursor: pointer;
+  text-shadow: 0 1px #68B25B;
+}
+.main{
+  max-width: 70%;
+}
