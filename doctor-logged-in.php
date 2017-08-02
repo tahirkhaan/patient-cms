@@ -17,7 +17,7 @@
         <hr>
         <center>
             <p id="patient">List of Patients</p>
-            <table class="table table-hover table-bordered" cellspacing="0" width="100%">
+            <table class="table table-hover table-bordered" id="doctable" cellspacing="0" width="100%">
                 <thead class="thead-inverse">
                     <tr>
                         <th>Patient id</th>

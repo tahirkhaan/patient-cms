@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html >
 <head>
-  <meta charset="UTF-8">
   <title>Login Patient</title>
-  	<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
-<body>
-  	
+<body>  	
 <div class="box">
 <form action="#" method="post">
   <h2>Patient Login</h2>
