@@ -18,7 +18,7 @@
   <h2>Patient Login</h2>
 		<p>
 			<label for="patientid" class="floatLabel">Patient ID</label>
-			<input id="Email" name="Email" type="text">
+			<input id="patientid" name="patientid" type="text">
 		</p>
 		<p>
 			<label for="password" class="floatLabel">Password</label>
