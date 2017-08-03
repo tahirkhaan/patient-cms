@@ -14,32 +14,32 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a href="doctor-viewing-patient.php">001</a>
+                        <td><a href="doctor_viewing_patient.php">001</a>
                         </td>
                         <td>tahir</td>
                     </tr>
                     <tr>
-                        <td><a href="doctor-viewing-patient.php">002</a>
+                        <td><a href="doctor_viewing_patient.php">002</a>
                         </td>
                         <td>tahir</td>
                     </tr>
                     <tr>
-                        <td><a href="doctor-viewing-patient.php">003</a>
+                        <td><a href="doctor_viewing_patient.php">003</a>
                         </td>
                         <td>tahir</td>
                     </tr>
                     <tr>
-                        <td><a href="doctor-viewing-patient.php">004</a>
+                        <td><a href="doctor_viewing_patient.php">004</a>
                         </td>
                         <td>tahir</td>
                     </tr>
                     <tr>
-                        <td><a href="doctor-viewing-patient.php">005</a>
+                        <td><a href="doctor_viewing_patient.php">005</a>
                         </td>
                         <td>tahir</td>
                     </tr>
                     <tr>
-                        <td><a href="doctor-viewing-patient.php">006</a>
+                        <td><a href="doctor_viewing_patient.php">006</a>
                         </td>
                         <td>tahir</td>
                     </tr>
