@@ -25,10 +25,14 @@
             <div class="form-group">
                 <label for="comment">Medication:-</label>
                 <textarea class="form-control" rows="5" id="comment"></textarea>
+                <br>
+                 <button type="submit" class="btn btn-success" id="btn">Update Medication</button>
+                 <br>
             </div>
-            <button type="submit" class="btn btn-success" id="btn">Update Medication</button>
 
-            <table class="table table-hover table-bordered" id="docVtable" cellspacing="0">
+           
+            <h4>Record:</h4>
+            <table class="table table-hover table-bordered"  cellspacing="0">
                 <thead class="thead-inverse" <tr>
                     <th>Time Date</th>
                     <th>Pulse</th>
