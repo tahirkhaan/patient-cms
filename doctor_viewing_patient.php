@@ -4,9 +4,9 @@
   <h1 id="doctor">Doctor Viewing Patient</h1>
   <hr>
   <div class="name">
-    <p>Patient ID :-<span id="pi">005</span>
+    <p>Patient ID: <span id="pi">005</span>
     </p>
-    <p>Patient Name :-<span id="pn">Ahmad Khan</span>
+    <p>Patient Name: <span id="pn">Ahmad Khan</span>
     </p>
   </div>
   <div class="medication">
