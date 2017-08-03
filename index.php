@@ -3,7 +3,6 @@
 
 <body>
   <div class="container home">
-
     <center>
       <h2 style="padding-top: 30px;">Patient Information System</h2>
     </center>
