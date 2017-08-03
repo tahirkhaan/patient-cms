@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <title>Login Doctor</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/style.css">
-</head>
+<?php include "header.php"; ?>
 
 <body>
   	
@@ -26,9 +19,5 @@
 		</p>
 	</form>
 	</div>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-    <script src="js/index.js"></script>
-
-</body>
-</html>
+<?php include "footer.php"; ?>

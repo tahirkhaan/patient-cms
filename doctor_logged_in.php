@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Doctor Logged in</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
+<?php include "header.php"; ?>
 <body>
     <div class="container main">
         <h1 id="doctor">Doctor Logged In</h1>
@@ -60,10 +48,5 @@
         </center>
     </div>
 
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-    <script src="js/index.js"></script>
-
-</body>
-
-</html>
+<?php include "footer.php"; ?>
