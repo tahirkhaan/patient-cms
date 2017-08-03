@@ -18,20 +18,20 @@ function canSubmit() {
   return isPasswordValid() && arePasswordsMatching();
 }
 
-function passwordEvent(){
-    //Find out if password is valid  
-    if(isPasswordValid()) {
-      //Hide hint if valid
-      $password.next().hide();
-    } else {
-      //else show hint
-      $password.next().show();
-    }
+function passwordEvent() {
+  //Find out if password is valid  
+  if (isPasswordValid()) {
+    //Hide hint if valid
+    $password.next().hide();
+  } else {
+    //else show hint
+    $password.next().show();
+  }
 }
 
 function confirmPasswordEvent() {
   //Find out if password and confirmation match
-  if(arePasswordsMatching()) {
+  if (arePasswordsMatching()) {
     //Hide hint if match
     $confirmPassword.next().hide();
   } else {
