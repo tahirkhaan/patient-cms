@@ -15,9 +15,10 @@
     <div class="container main">
         <h1 id="doctor">Doctor Logged In</h1>
         <hr>
+        
         <center>
             <p id="patient">List of Patients</p>
-            <table class="table table-hover table-bordered" id="doctable" cellspacing="0" width="100%">
+            <table class="table table-hover table-bordered" id="doctable">
                 <thead class="thead-inverse">
                     <tr>
                         <th>Patient id</th>
