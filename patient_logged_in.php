@@ -1,12 +1,14 @@
-<?php include "header.php"; ?>
-
+<?php 
+   include_once('login/session_login.php');
+    include "header.php";
+    ?>
 <body>
   <div class="container">
     <div class="row">
       <div class="col-md-8">
         <h2 style="padding-top: 25px; ">Patient logged in</h2>
         <hr>
-        <h5 style="font-weight: bold;">Patient Name : <span id="pi">Ahmed shah</span>
+        <h5 style="font-weight: bold;">Patient Name : <span id="pi"><?php  echo $login_session; ?></span>
             </h5>
         <div class="form-group">
           <label for="comment">Medication:</label>
