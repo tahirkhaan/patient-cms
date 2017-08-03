@@ -1,4 +1,5 @@
 <?php include "header.php"; ?>
+<?php include "config/conn.php"; ?>
 
 <body>
   <div class="container home">
