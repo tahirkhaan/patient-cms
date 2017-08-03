@@ -1,7 +1,5 @@
 <?php include "header.php"; ?>
-
-<body>
-  	
+<body>  	
 <div class="box">
 <form action="#" method="post">
   <h2>Patient Login</h2>

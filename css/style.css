@@ -1,14 +1,61 @@
 body {
   background: #384047;
   font-family: sans-serif;
-  font-size: 10px;
 }
 
+.main{
+    max-width: 80%;
+    margin-top: 25px;
+    border-radius: 2px;
+    background: #fff;
+}
+#doctor{
+  font-weight: 900;
+  text-align: center;
+  color: #666666;
+}
+#patient{
+  padding-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #666666;
+}
+#doctable{
+  max-width: 50%;
+}
+/*DOCTOR VIEWING PATIENT*/
+.mainone{
+  max-width: 95%;
+  margin-top: 25px;
+  border-radius: 2px;
+  background: #fff;
 
-/*Box CSS*/
-
-.box {
-  margin-top: 110px;
+}
+.name{
+  padding: 15px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #666666;
+}
+#pi{
+  padding-left: 36px
+}
+#pn{
+  padding-left: 10px;
+}
+.medication{
+  padding: 15px;
+}
+#btn{
+  float: right;
+}
+/*#docVtable{
+  margin-top: 75px;
+}*/
+        /*Box CSS*/
+.box{
+    margin-top: 110px;
+    font-size: 10px;
 }
 
 form {
