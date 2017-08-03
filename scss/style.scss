@@ -1,12 +1,13 @@
 @import "compass/css3";
 
-$button: rgba(148,186,101,0.7);
+$button: rgba(148, 186, 101, 0.7);
 
 body {
   background: #384047;
   font-family: sans-serif;
   font-size: 10px
 }
+
 form {
   background: #fff;
   padding: 4em 4em 2em;
@@ -15,12 +16,12 @@ form {
   box-shadow: 0 0 1em #222;
   border-radius: 2px;
   h2 {
-    margin:0 0 50px 0;
-    padding:10px;
-    text-align:center;
-    font-size:30px;
-    color:darken(#e5e5e5, 50%);
-    border-bottom:solid 1px #e5e5e5;
+    margin: 0 0 50px 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: darken(#e5e5e5, 50%);
+    border-bottom: solid 1px #e5e5e5;
   }
   p {
     margin: 0 0 3em 0;
@@ -31,7 +32,7 @@ form {
     box-sizing: border-box;
     width: 100%;
     outline: none;
-    margin:0;
+    margin: 0;
   }
   input[type="text"],
   input[type="password"] {
@@ -46,7 +47,7 @@ form {
     background: #fff
   }
   span {
-    display:block;
+    display: block;
     background: #F9A5A5;
     padding: 2px 5px;
     color: #666;
@@ -67,13 +68,11 @@ form {
     text-shadow: 0 1px #68B25B;
   }
   input[type="submit"]:hover {
-    background: rgba(148,175,101,1);
-    text-shadow:0 1px 3px darken($button, 30%);
+    background: rgba(148, 175, 101, 1);
+    text-shadow: 0 1px 3px darken($button, 30%);
   }
-  input[type="submit"]:hover {
-    
-  }
-  label{
+  input[type="submit"]:hover {}
+  label {
     position: absolute;
     left: 8px;
     top: 12px;
@@ -82,13 +81,12 @@ form {
     display: inline-block;
     padding: 4px 10px;
     font-weight: 400;
-    background-color: rgba(255,255,255,0);
+    background-color: rgba(255, 255, 255, 0);
     @include transition(color .3s, top .3s, background-color .8s);
-    &.floatLabel{
+    &.floatLabel {
       top: -11px;
-      background-color: rgba(255,255,255,0.8);
+      background-color: rgba(255, 255, 255, 0.8);
       font-size: 14px;
     }
-	}
-  
+  }
 }
