@@ -2,6 +2,7 @@ body {
   background: #384047;
   font-family: sans-serif;
 }
+
 #btnn{
      background: rgba(148, 186, 101, 0.7);
     box-shadow: 0 3px 0 0 rgba(123, 163, 73, 0.7);
@@ -9,8 +10,7 @@ body {
     border: none;
     color: #fff;
     font-size: 2em;
-    padding: 0.8em 109px;
-
+    padding: 0.8em 135px;
 }
 
 .main{
@@ -19,17 +19,20 @@ body {
     border-radius: 2px;
     background: #fff;
 }
+
 #doctor{
   font-weight: 900;
   text-align: center;
   color: #666666;
 }
+
 #patient{
   padding-bottom: 20px;
   font-size: 20px;
   font-weight: 600;
   color: #666666;
 }
+
 #doctable{
   max-width: 50%;
 }
@@ -41,28 +44,30 @@ body {
   background: #fff;
 
 }
+
 .name{
   padding: 15px;
   font-size: 15px;
   font-weight: 600;
   color: #666666;
 }
+
 #pi{
   padding-left: 36px
 }
+
 #pn{
   padding-left: 10px;
 }
+
 .medication{
   padding: 15px;
 }
+
 #btn{
   float: right;
 }
-/*#docVtable{
-  margin-top: 75px;
-}*/
-        /*Box CSS*/
+  /*Box CSS*/
 .box{
     margin-top: 110px;
     font-size: 10px;
