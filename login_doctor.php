@@ -1,11 +1,9 @@
 <?php include "header.php"; 
 include_once('login/session_login.php');
-
-  
 ?>
 <body>
   <div class="box">
-    <form action="login/login_doctor.php" method="post">
+    <form action="login/login_doctor.php" method="post" class="LoginDp">
       <h2>Doctor Login</h2>
       <p>
         <label for="doctorEmail" class="floatLabel">Doctor Email</label>
