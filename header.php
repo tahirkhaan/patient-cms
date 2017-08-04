@@ -11,4 +11,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
 
+  <?php include "config/conn.php"; ?>
+
 </head>
