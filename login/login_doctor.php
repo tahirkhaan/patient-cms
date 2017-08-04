@@ -17,18 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     // If result matched $myusername and $mypassword, table row must be 1 row
     if ($count == 1)
     {
-        $_SESSION['usersname'] = $myusername;
+        $_SESSION['usersname'] = $myUserName;
         header("location: ../doctor_logged_in.php");
     }
     else
     {
         echo "invalid user name or password ";
-        // function error(){
-        //  $_SESSION['error'] = "invalid user name";
-        //  $error = $_SESSION['error'] ;
-        //  // print_r($_SESSION);
-        //  return $error;
-        // } 
+      
     }
 }
 
