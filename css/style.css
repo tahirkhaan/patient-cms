@@ -72,15 +72,24 @@ body {
     margin-top: 110px;
     font-size: 10px;
 }
+.LoginDp{
+   background: #fff;
+  padding: 4em 4em 2em;
+  max-width: 400px;
+  margin: 50px auto 0;
+  box-shadow: 0 0 1em #222;
+  border-radius: 2px;
 
-form {
+}
+
+/*form {
   background: #fff;
   padding: 4em 4em 2em;
   max-width: 400px;
   margin: 50px auto 0;
   box-shadow: 0 0 1em #222;
   border-radius: 2px;
-}
+}*/
 
 form h2 {
   margin: 0 0 50px 0;
@@ -147,7 +156,7 @@ form input[type="submit"]:hover {
 }
 
 form label {
-  position: absolute;
+  /*position: absolute;*/
   left: 8px;
   top: 12px;
   color: #999;
