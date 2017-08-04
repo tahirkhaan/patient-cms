@@ -8,8 +8,8 @@ include_once('login/session_login.php');
     <form action="login/login_doctor.php" method="post">
       <h2>Doctor Login</h2>
       <p>
-        <label for="doctorname" class="floatLabel">Doctor Name</label>
-        <input id="doctorname" name="doctorname" type="text">
+        <label for="doctorEmail" class="floatLabel">Doctor Email</label>
+        <input id="doctorname" name="doctorEmail" type="text">
       </p>
       <p>
         <label for="password" class="floatLabel">Password</label>
