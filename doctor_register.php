@@ -1,31 +1,35 @@
-<?php include "header.php"; ?>
+ <?php
+  include "header.php";
+ ?>
 
-<body>
 
-  <form action="#" method="post">
+<body style="font-size: 10px;">
+
+  <form  method="post" action="register_user/register.php">
     <h2>Doctor Register</h2>
     <p>
-      <label for="Email" class="floatLabel">Doctor Id</label>
-      <input id="number" name="id" type="text">
+      <label for="username" class="floatLabel">Patient Name</label>
+      <input id="number" name="username" type="text" required>
     </p>
     <p>
       <label for="password" class="floatLabel">Password</label>
-      <input id="password" name="password" type="password">
-      <span>Enter a password longer than 8 characters</span>
+      <input id="password" name="password" type="password" required>
+      <!--<span>Enter a password longer than 8 characters</span>-->
     </p>
     <p>
-      <label for="doctor_name" class="floatLabel">Doctor Name</label>
-      <input id="doctor_name" name="doctor_name" type="text">
+      <label for="patientphone" class="floatLabel">Phone Number</label>
+      <input id="patientphone" name="phonenumber" type="number" required>
 
     </p>
     <p>
-      <label for="doctor_number" class="floatLabel">Doctor Mobile</label>
-      <input id="patient_name" name="patient_name" type="text">
+      <label for="doctoremail" class="floatLabel">Patient Email</label>
+      <input id="doctoremail" name="doctoremail" type="email" required>
 
     </p>
     <p>
-      <input type="submit" value="Register" id="submit">
+     
+     <button type="submit" name="doctor_submit" id="btnn" class="btn">Login</button>
     </p>
   </form>
-  
-<?php include "footer.php"; ?>
+
+  <?php include "footer.php"; ?>
