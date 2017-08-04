@@ -1,6 +1,10 @@
 <?php 
    include_once('login/session_login.php');
     include "header.php";
+    $type = $_SESSION['type'];
+     if (!$type = "patient"){
+        header("location: ../login_doctor.php");
+     }
     ?>
 <body>
   <div class="container">
@@ -67,5 +71,4 @@
       <div class="col-md-4"></div>
     </div>
   </div>
-
 <?php include "footer.php"; ?>
