@@ -18,6 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if ($count == 1)
     {
         $_SESSION['username'] = $myUserName;
+        $type = $_SESSION['type'];
+        
+
         header("location: ../patient_logged_in.php");
     }
     else

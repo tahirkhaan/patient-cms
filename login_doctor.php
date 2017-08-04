@@ -1,4 +1,8 @@
-<?php include "header.php"; ?>
+<?php include "header.php"; 
+include_once('login/session_login.php');
+
+  
+?>
 <body>
   <div class="box">
     <form action="login/login_doctor.php" method="post">
@@ -10,7 +14,7 @@
       <p>
         <label for="password" class="floatLabel">Password</label>
         <input id="password" name="password" type="password">
-        <span>Enter a password longer than 8 characters</span>
+       <!--  <span>Enter a password longer than 8 characters</span> -->
       </p>
       <p>
         <button type="submit" id="btnn" class="btn">Login</button>
