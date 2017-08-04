@@ -12,5 +12,4 @@
   <link rel="stylesheet" href="css/style.css">
 
   <?php include "config/conn.php"; ?>
-
 </head>
