@@ -1,4 +1,7 @@
-<?php  
-unset($_SESSION['usersname']); // will delete just the name data
-session_destroy();
+<?php
+   session_start();
+   
+   if(session_destroy()) {
+      header("Location: ../login_doctor.php");
+   }
 ?>

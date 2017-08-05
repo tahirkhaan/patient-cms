@@ -2,9 +2,8 @@
 <body>
     <div class="container main">
         <h1 id="doctor">Doctor Logged In</h1>
-        <hr>
-  
-        
+        <p style="float: right; font-size: 25px;"><a href="login/logout.php">Logout</a></p>
+        <hr> 
         <center>
             <p id="patient">List of Patients</p>
             <table class="table table-hover table-bordered" id="doctable">
@@ -37,6 +36,4 @@
             </table>
         </center>
     </div>
-
-
 <?php include "footer.php"; ?>

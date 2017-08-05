@@ -2,42 +2,38 @@
 <body>
 <div class="container mainone">
   <h1 id="doctor">Doctor Viewing Patient</h1>
+  <p  style="float: right; font-size: 25px;"><a href="login/logout.php">Logout</a></p>
   <hr>
-  <?php
-   if (isset($_GET["patient_id"]) )
-    {
-        $patient_id = $_GET["patient_id"];
-
-    }
-    $sql ="SELECT * FROM users where id = ".$patient_id;  
-    $result = mysqli_query($conn, $sql);   
-
-       $patient = mysqli_fetch_assoc($result);
-           
-
-            $sql ="SELECT * FROM patient_readings where user_id = ".$patient_id;  
-    $result_patient_data = mysqli_query($conn, $sql);   
-
-    $sql ="SELECT * FROM patient_medication where user_id = ".$patient_id;  
-    $result = mysqli_query($conn, $sql);   
-
-       $patient_medication = mysqli_fetch_assoc($result);
-
- 
-if(isset($_POST['submit_medication'])){
-  $medication = $_POST['medication'];
-
-$sql = "UPDATE patient_medication SET medication='$medication' WHERE user_id=".$patient_id;
-
-if (mysqli_query($conn, $sql)) {
-    echo "Record updated successfully";
-} else {
-    echo "Error updating record: " . mysqli_error($conn);
+ <?php
+if (isset($_GET["patient_id"]))
+{
+  $patient_id = $_GET["patient_id"];
 }
 
-mysqli_close($conn);
+$sql = "SELECT * FROM users where id = " . $patient_id;
+$result = mysqli_query($conn, $sql);
+$patient = mysqli_fetch_assoc($result);
+$sql = "SELECT * FROM patient_readings where user_id = " . $patient_id;
+$result_patient_data = mysqli_query($conn, $sql);
+$sql = "SELECT * FROM patient_medication where user_id = " . $patient_id;
+$result = mysqli_query($conn, $sql);
+$patient_medication = mysqli_fetch_assoc($result);
 
-  } ?>
+if (isset($_POST['submit_medication']))
+{
+  $medication = $_POST['medication'];
+  $sql = "UPDATE patient_medication SET medication='$medication' WHERE user_id=" . $patient_id;
+  if (mysqli_query($conn, $sql))
+  {
+    echo "Record updated successfully";
+  }
+  else
+  {
+    echo "Error updating record: " . mysqli_error($conn);
+  }
+
+  mysqli_close($conn);
+} ?>
     
   <div class="name">
     <p>Patient ID: <span id="pi"><?php echo $patient['id']; ?></span>
@@ -55,13 +51,10 @@ mysqli_close($conn);
       <button name="submit_medication" type="submit" class="btn btn-success" id="btn">Update Medication</button>
       </form><br>
     </div>
-
-
     <h4>Record:</h4>
     <table class="table table-hover table-bordered" cellspacing="0">
       <thead class="thead-inverse">
       <th>Time</th>
-        
       <th>Pulse</th>
       <th>B.P</th>
       <th>Temperature</th>
@@ -77,7 +70,6 @@ mysqli_close($conn);
         <td><?php echo $patient['glucose'];?></td>
       </tr>
       <?php }?>
-  
       </tbody>
     </table>
   </div>

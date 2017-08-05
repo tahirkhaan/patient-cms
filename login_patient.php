@@ -1,11 +1,11 @@
 <?php include "header.php"; ?>
 <body>
   <div class="box">
-    <form method="POST" action="login/login_patient.php">
+    <form method="POST" action="login/login_patient.php" class="LoginDp">
       <h2>Patient Login</h2>
       <p>
-        <label for="patientname" class="floatLabel">Patient Name</label>
-        <input id="patientname" name="patientname" type="text">
+        <label for="patientemail" class="floatLabel">Patient Email</label>
+        <input id="patientname" name="patientemail" type="text">
       </p>
       <p>
         <label for="password" class="floatLabel">Password</label>
