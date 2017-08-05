@@ -2,9 +2,9 @@
 $serverName = "localhost";
 
 $username = "root";
-$password = "pass4rd";
+$password = "";
 $db = "patient_cms";
-$port = "8889";
+$port = "3306";
 
 $conn = mysqli_connect($serverName, $username, $password, $db, $port);
 

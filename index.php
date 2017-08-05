@@ -1,5 +1,4 @@
 <?php include "header.php"; ?>
-<?php include "config/conn.php"; ?>
 
 <body>
   <div class="container home">
@@ -11,7 +10,7 @@
       <div class="col-md-12">
         <center>
           <div class="buttons">
-            <a href="patient_register.php" class="btn btn-success btn-lg btn-block btn-huge">Register as a Patient</a>
+            <a href="register.php?type=patient" class="btn btn-success btn-lg btn-block btn-huge">Register as a Patient</a>
             <br>
             <a href="login_patient.php" class="btn btn-success btn-lg btn-block btn-huge">Login as a Patient </a>
             <br>

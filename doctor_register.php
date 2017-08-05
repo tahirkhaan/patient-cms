@@ -3,9 +3,9 @@
  ?>
 
 
-<body style="font-size: 10px;">
+<body>
 
-  <form  method="post" action="register_user/register.php">
+  <form  method="post" action="includes/register.php">
     <h2>Doctor Register</h2>
     <p>
       <label for="username" class="floatLabel">Patient Name</label>

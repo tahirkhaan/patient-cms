@@ -1,4 +1,5 @@
 <?php include "header.php"; ?>
+
 <body>
 <div class="container mainone">
   <h1 id="doctor">Doctor Viewing Patient</h1>
