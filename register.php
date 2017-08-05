@@ -7,7 +7,7 @@ if (!isset($_GET["type"])) {
 } else {
 
     $registerType = $_GET['type'];
-    echo $registerType;
+    // echo $registerType;
     if ($registerType === "patient") {
         $submitType = "patient_register";
         $heading = "Register Patient";
