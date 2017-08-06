@@ -34,7 +34,7 @@ if (!isset($_GET["type"])) {
     </p>
     <p>
       <label for="patient_name" class="floatLabel">Phone Number</label>
-      <input id="patientphone" name="phone-number" type="number" required>
+      <input id="patientphone" name="phone-number"  required>
     </p>
     <p>
       <label for="patient_name" class="floatLabel"> Email</label>
