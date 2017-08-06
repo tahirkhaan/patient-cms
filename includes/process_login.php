@@ -17,14 +17,15 @@ if (isset($_POST["patient_login"]) || isset($_POST["doctor_login"])) {
 
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    $active = $row['active'];
-    $count = mysqli_num_rows($result);
-
+    $type = $row['type'];
     // If result matched $myusername and $mypassword, table row must be 1 row
-    if ($count == 1)
+    if ($type == "patient")
     {
         $_SESSION['email'] = $myUserEmail;
         header("location: ../patient_logged_in.php");
+    }elseif ($type == "doctor") {
+       $_SESSION['email'] = $myUserEmail;
+        header("location: ../doctor_logged_in.php");
     }
     else
     {
