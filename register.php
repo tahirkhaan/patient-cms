@@ -1,6 +1,5 @@
 <?php
 include "header.php";
-session_start();
 
 if (!isset($_GET["type"])) {
     header("Location: ./index.php");
@@ -23,9 +22,13 @@ if (!isset($_GET["type"])) {
 <div class="box">
   <form method="POST" action="includes/process_register.php"  class="LoginDp">
     <h2><?php echo $heading ?></h2>
+      <p>
+      <label for="name" class="floatLabel">Name</label>
+      <input id="name"  name="name" required>
+    </p>
     <p>
-      <label for="username" class="floatLabel"> Name</label>
-      <input id="number" name="username" required>
+      <label for="username" class="floatLabel">User Name</label>
+      <input id="username" name="username" required>
     </p>
     <p>
       <label for="password" class="floatLabel">Password</label>

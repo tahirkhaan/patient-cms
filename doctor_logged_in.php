@@ -26,7 +26,7 @@
                     <tr>
                         <td><a href="doctor_viewing_patient.php?patient_id=<?php echo $row['id'] ?>"><?php echo $row['id']; ?></a>
                         </td>
-                        <td><?php echo $row['usersname']; ?></td>
+                        <td><?php echo $row['name']; ?></td>
     <?php
         }
         } else {

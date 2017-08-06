@@ -1,4 +1,6 @@
-<?php include "header.php"; ?>
+<?php
+session_start(); 
+include "header.php"; ?>
 
 <body>
 <div class="container home">
@@ -10,7 +12,7 @@
           <?php
           if (isset($_SESSION['errormsg'])) {
               echo $_SESSION['errormsg'];
-              // $_SESSION['errormsg'] = "";
+               $_SESSION['errormsg'] = "";
           }
           ?></div>
       <div class="buttons">
@@ -30,3 +32,4 @@
 </div>
 
 <?php include "footer.php"; ?>
+
