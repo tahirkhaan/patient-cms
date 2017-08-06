@@ -1,8 +1,9 @@
-<?php include "header.php"; ?>
+<?php include "header.php";
+ include_once('includes/session_login.php'); ?>
 <body>
     <div class="container main">
         <h1 id="doctor">Doctor Logged In</h1>
-        <p style="float: right; font-size: 25px;"><a href="login/logout.php">Logout</a></p>
+      <p  style="float: right; font-size: 25px;"><a href="includes/logout.php"><button type="button" class="btn btn-default">Logout</button></a></p>
         <hr> 
         <center>
             <p id="patient">List of Patients</p>
@@ -13,6 +14,7 @@
                         <th>Patient Name</th>
                 </thead>
      <?php 
+         include ("config/conn.php");
         $sql ="SELECT * FROM `users` WHERE type='patient'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) 
