@@ -1,6 +1,6 @@
 <?php
  session_start();
-include ("../config/conn.php");
+ include ("../config/conn.php");
 
 if (isset($_POST["patient_login"]) || isset($_POST["doctor_login"])) {
 
@@ -15,16 +15,11 @@ if (isset($_POST["patient_login"]) || isset($_POST["doctor_login"])) {
     }
      $sql = "SELECT * FROM `users` WHERE email = '$myUserEmail' and password = '$myPassword' and type = '$type'";
 
-
-    // $type = "doctor";
-    // $sql = "SELECT * FROM `users` WHERE email = '$myUserEmail' and password = '$myPassword' and type = '$type'";
-
-     $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $active = $row['active'];
     $count = mysqli_num_rows($result);
 
-  
     // If result matched $myusername and $mypassword, table row must be 1 row
     if ($count == 1)
     {
@@ -34,8 +29,7 @@ if (isset($_POST["patient_login"]) || isset($_POST["doctor_login"])) {
     else
     {
         echo "invalid user name or password ";
-      
-    }
+      }
 }
 
 ?>
