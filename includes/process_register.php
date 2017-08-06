@@ -1,6 +1,5 @@
 <?php
-include("../config/conn.php");
-
+session_start();
 if (isset($_POST["patient_register"]) || isset($_POST["doctor_register"])) {
     $username = $_POST['username'];
     $userPass = $_POST['password'];
@@ -8,41 +7,32 @@ if (isset($_POST["patient_register"]) || isset($_POST["doctor_register"])) {
     $email = $_POST['email'];
     $sql = "";
 
-
-    if (isset($_POST["patient_register"]) ) {
-       $type = 'patient';
+    if (isset($_POST["patient_register"])) {
+        $type = 'patient';
     } else {
         $type = 'doctor';
     }
 
-    if(isUnique($email)){  
-    $sql = "insert into users (usersname, password, phone, email, type)  values ('$username','$userPass','$phoneNumber','$email','$type')";
-    } 
-
-    if($sql !== "") {
+    if (isUnique($email)) {
+        include "../config/conn.php";
+        $sql = "insert into users (usersname, password, phone, email, type)  values ('$username','$userPass','$phoneNumber','$email','$type')";
         if (mysqli_query($conn, $sql)) {
-            echo"Successfully registered";
-              header("location: ../login.php");
-         } else {
-            echo "There was a problem while registering, please try again";
-             header("location:../login.php");
-        }    
+            header("location: ../login.php");
+        }
+    } else {
+        $_SESSION["errormsg"] = "Email already exist";
+        header("location: ../index.php");
     }
 }
-function isUnique($email){
-
-    $sql = "COUNT * FROM users where email LIKE '$email'";
-    
+function isUnique($email)
+{
+    include "../config/conn.php";
+    $sql = "SELECT * FROM users where email LIKE '$email'";
     // Code for counting actual rows
     $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    $active = $row['active'];
     $count = mysqli_num_rows($result);
-
-        if($count>0) {
-            return false; 
-            echo "Email already exist";   
-        } 
-        
+    if ($count > 0) {
+        return false;
+    }
     return true;
 }

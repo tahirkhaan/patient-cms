@@ -1,6 +1,5 @@
 <?php
 include "header.php";
-session_start();
 
 if (!isset($_GET["type"])) {
     header("Location: ./index.php");
