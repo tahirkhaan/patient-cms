@@ -1,6 +1,8 @@
 <?php
 include "header.php";
-include __DIR__ . "/includes/process_register.php";
+session_start();
+// include __DIR__ . "/includes/process_register.php";
+
 
 if (!isset($_GET["type"])) {
     header("Location: ./index.php");
@@ -18,10 +20,11 @@ if (!isset($_GET["type"])) {
         header("location:./");
     }
 }
+
 ?>
 <body>
 <div class="box">
-  <form method="post" class="LoginDp">
+  <form method="POST" action="includes/process_register.php"  class="LoginDp">
     <h2><?php echo $heading ?></h2>
     <p>
       <label for="username" class="floatLabel"> Name</label>
