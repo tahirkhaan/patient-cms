@@ -1,8 +1,6 @@
 <?php
 include "header.php";
 session_start();
-// include __DIR__ . "/includes/process_register.php";
-
 
 if (!isset($_GET["type"])) {
     header("Location: ./index.php");
