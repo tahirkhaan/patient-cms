@@ -1,22 +1,29 @@
 <?php 
-   include_once('login/session_login.php');
+   include_once('includes/session_login.php');
     include "header.php";
-    $type = $_SESSION['type'];
-     if (!$type = "patient"){
-        header("location: ../login_doctor.php");
-     }
     ?>
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
-        <h2 style="padding-top: 25px; ">Patient logged in</h2>
+      <div class="col-md-12">
+      <center>
+        <h2 style="padding-top: 25px; ">Patient logged in</h2> </center>
+        <p  style="float: right; font-size: 25px;"><a href="includes/logout.php"><button type="button" class="btn btn-default">Logout</button></a></p>
         <hr>
-        <h5 style="font-weight: bold;">Patient Name : <span id="pi"><?php  echo $login_session; ?></span>
+        <h5 style="font-weight: bold;">Patient ID : <span id="pi"><?php  echo $idSession; ?></span>
             </h5>
+            <h5 style="font-weight: bold;">Patient Name : <span id="pi"><?php  echo $name; ?></span>
+            </h5>
+            <?php  
+            $sql = "SELECT * FROM patient_readings where user_id = " . $idSession;
+            $result = mysqli_query($conn, $sql);
+            $sql = "SELECT * FROM patient_medication where user_id = " . $idSession;
+            $result1 = mysqli_query($conn, $sql);
+            $patient_medication = mysqli_fetch_assoc($result1);
+            ?>
         <div class="form-group">
           <label for="comment">Medication:</label>
-          <textarea class="form-control" rows="5" id="comment"></textarea>
+          <textarea class="form-control" rows="5" id="comment" readonly><?php echo $patient_medication['medication'];?></textarea>
         </div>
 
         <h4>Record:</h4>
@@ -31,44 +38,19 @@
             </tr>
           </thead>
           <tbody>
+           <?php while($patient = mysqli_fetch_assoc($result)) {?>
             <tr>
-              <td>2</td>
-              <td>70</td>
-              <td>120/80</td>
-              <td>104</td>
-              <td>30</td>
+             <td><?php echo $patient['timestamp'];?></td>
+        <td><?php echo $patient['pulse'];?></td>
+        <td><?php echo $patient['bp1'].'/'.$patient['bp2'];?></td>
+        <td><?php echo $patient['temp'];?></td>
+        <td><?php echo $patient['glucose'];?></td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>70</td>
-              <td>120/80</td>
-              <td>104</td>
-              <td>30</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>70</td>
-              <td>120/80</td>
-              <td>104</td>
-              <td>30</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>70</td>
-              <td>120/80</td>
-              <td>104</td>
-              <td>30</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>70</td>
-              <td>120/80</td>
-              <td>104</td>
-              <td>30</td>
-            </tr>
+            <?php }?>
           </tbody>
       </div>
-      <div class="col-md-4"></div>
+      </table>
+     
     </div>
   </div>
 <?php include "footer.php"; ?>
