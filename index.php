@@ -1,7 +1,7 @@
 <?php
-session_start();
-include "header.php";
- ?>
+session_start(); 
+include "header.php"; ?>
+
 <body>
 <div class="container home">
   <h2 style="padding-top: 30px; text-align:center;font-weight: 700;">Patient Information System</h2>
@@ -31,5 +31,4 @@ include "header.php";
     </div>
   </div>
 </div>
-
 <?php include "footer.php"; ?>
