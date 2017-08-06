@@ -40,7 +40,8 @@ function isUnique($email){
     $count = mysqli_num_rows($result);
 
         if($count>0) {
-            return false;    
+            return false; 
+            echo "Email already exist";   
         } 
         
     return true;
