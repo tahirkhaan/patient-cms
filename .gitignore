@@ -45,3 +45,7 @@ crashlytics-build.properties
 fabric.properties
 .gitignore
 .idea/
+
+*.csv
+
+config/conn.php

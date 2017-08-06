@@ -1,5 +1,5 @@
 <?php
-$serverName = "localhost";
+$serverName = "localhost"; // Some places might only accept ip as in 127.0.0.1
 
 $username = "root";
 $password = "";
