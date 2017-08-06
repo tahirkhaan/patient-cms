@@ -33,7 +33,7 @@ function saveDataAsCsv($userId, $pulse, $bp1, $bp2, $glucose, $temperature)
 
 function saveDataInDatabase($userId, $pulse, $bp1, $bp2, $glucose, $temperature)
 {
-
+    // TODO Set it up and debug this
     $sql = "insert into patient_readings (user_id, pulse, bp1, bp2, glucose,temp) values ($userId, $pulse, $bp1, $bp2, $glucose, $temperature)";
     if (mysqli_query($conn, $sql)) {
        return true;
