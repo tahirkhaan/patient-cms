@@ -13,25 +13,26 @@ if (isset($_POST["patient_register"]) || isset($_POST["doctor_register"])) {
     } else {
         $type = 'doctor';
     }
-
-
-    $sql = "SELECT * FROM users where email ='$email'";
+    if (isUnique($email)) {
+        include "../config/conn.php";
+        $sql = "insert into users (usersname, password, phone, email, type)  values ('$username','$userPass','$phoneNumber','$email','$type')";
+        if (mysqli_query($conn, $sql)) {
+            header("location: ../login.php");
+        }
+    } else {
+        $_SESSION["errormsg"] = "Email already exist";
+        header("location: ../index.php");
+    }
+}
+function isUnique($email)
+{
+    include "../config/conn.php";
+    $sql = "SELECT * FROM users where email LIKE '$email'";
     // Code for counting actual rows
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     if ($count > 0) {
-        $_SESSION["errormsg"] = "Email already exist";
-        header("location: ../index.php");
-    }else{
-    $sql1 = "insert into users (name, username, password, phone, email, type)  values ('$name','$userName','$userPass','$phoneNumber','$email','$type')";
-        if (mysqli_query($conn, $sql1)) {
-            $_SESSION["errormsg"] = "You have successfully registered";
-            header("location: ../index.php");
-        } else{
-                $_SESSION["errormsg"] = "Email already exist";
-            header("location: ../index.php");
-        }
-
+        return false;
     }
-
+    return true;
 }
