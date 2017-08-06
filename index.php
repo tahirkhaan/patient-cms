@@ -14,16 +14,16 @@
             <br>
              <a href="register.php?type=doctor" class="btn btn-success btn-lg btn-block btn-huge">Register as a Doctor</a>
             <br>
-            <a href="login_patient.php" class="btn btn-success btn-lg btn-block btn-huge">Login as a Patient </a>
+            
             <br>
-            <a href="login_doctor.php" class="btn btn-success btn-lg btn-block btn-huge">Login as a Doctor</a>
+            <a href="login.php?type=patient" class="btn btn-success btn-lg btn-block btn-huge">Login as a Patient </a>
+            <br>
+            <a href="login.php?type=doctor" class="btn btn-success btn-lg btn-block btn-huge">Login as a Doctor</a>
             <br>
           </div>
         </center>
       </div>
-
     </div>
-
   </div>
 
   <?php include "footer.php"; ?>
