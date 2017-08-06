@@ -1,8 +1,6 @@
 <?php
 
-include("config/conn.php");
-
-    if (!isset($_GET) || !empty($_GET) && !empty($_GET['user_id']) && !empty($_GET['pulse']) && !empty($_GET['bp1']) && !empty($_GET['bp2']) && !empty($_GET['temp']) && !empty($_GET['glucose'])) {
+if (!isset($_GET) || !empty($_GET) && !empty($_GET['user_id']) && !empty($_GET['pulse']) && !empty($_GET['bp1']) && !empty($_GET['bp2']) && !empty($_GET['temp']) && !empty($_GET['glucose'])) {
 
     $userId = $_GET['user_id'];
     $pulse = $_GET['pulse'];
@@ -33,10 +31,11 @@ function saveDataAsCsv($userId, $pulse, $bp1, $bp2, $glucose, $temperature)
 
 function saveDataInDatabase($userId, $pulse, $bp1, $bp2, $glucose, $temperature)
 {
+    include("config/conn.php");
     // TODO Set it up and debug this
     $sql = "insert into patient_readings (user_id, pulse, bp1, bp2, glucose,temp) values ($userId, $pulse, $bp1, $bp2, $glucose, $temperature)";
     if (mysqli_query($conn, $sql)) {
-       return true;
+        return true;
     } else {
         return false;
     }
