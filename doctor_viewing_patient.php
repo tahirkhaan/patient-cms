@@ -1,11 +1,13 @@
-<?php include "header.php"; ?>
-
+<?php
+ include_once('includes/session_login.php'); 
+  include "header.php"; ?>
 <body>
 <div class="container mainone">
   <h1 id="doctor">Doctor Viewing Patient</h1>
-  <p  style="float: right; font-size: 25px;"><a href="login/logout.php">Logout</a></p>
+<p  style="float: right; font-size: 25px;"><a href="includes/logout.php"><button type="button" class="btn btn-default">Logout</button></a></p>
   <hr>
  <?php
+ include ("config/conn.php");
 if (isset($_GET["patient_id"]))
 {
   $patient_id = $_GET["patient_id"];
@@ -32,7 +34,6 @@ if (isset($_POST['submit_medication']))
   {
     echo "Error updating record: " . mysqli_error($conn);
   }
-
   mysqli_close($conn);
 } ?>
     
