@@ -14,8 +14,7 @@ if (isset($_POST["patient_register"]) || isset($_POST["doctor_register"])) {
     }
     if (isUnique($email)) {
         include "../config/conn.php";
-        $sql1 = "insert into users (name, username, password, phone, email, type)  values 
-        ('$name','$userName','$userPass','$phoneNumber','$email','$type')";
+        $sql1 = "insert into users (name, username, password, phone, email, type)  values ('$name','$userName','$userPass','$phoneNumber','$email','$type')";
         if (mysqli_query($conn, $sql1)) {
             header("location: ../login.php");
         }

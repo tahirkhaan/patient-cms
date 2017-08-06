@@ -14,7 +14,8 @@ include "header.php"; ?>
               echo $_SESSION['errormsg'];
                $_SESSION['errormsg'] = "";
           }
-          ?></div>
+          ?>
+      </div>
       <div class="buttons">
         <a href="register.php?type=patient" class="btn btn-success btn-lg btn-block btn-huge">Register as a Patient</a>
         <br>
@@ -29,7 +30,5 @@ include "header.php"; ?>
 
     </div>
   </div>
-</div>
-
 <?php include "footer.php"; ?>
 
