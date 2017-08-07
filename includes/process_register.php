@@ -1,22 +1,21 @@
 <?php
 session_start();
 if (isset($_POST["patient_register"]) || isset($_POST["doctor_register"])) {
-    $username = $_POST['username'];
+    $name = $_POST['name'];
+    $userName = $_POST['username'];
     $userPass = $_POST['password'];
     $phoneNumber = $_POST['phone-number'];
     $email = $_POST['email'];
     $sql = "";
-
     if (isset($_POST["patient_register"])) {
         $type = 'patient';
     } else {
         $type = 'doctor';
     }
-
     if (isUnique($email)) {
         include "../config/conn.php";
-        $sql = "insert into users (usersname, password, phone, email, type)  values ('$username','$userPass','$phoneNumber','$email','$type')";
-        if (mysqli_query($conn, $sql)) {
+        $sql1 = "insert into users (name, username, password, phone, email, type)  values ('$name','$userName','$userPass','$phoneNumber','$email','$type')";
+        if (mysqli_query($conn, $sql1)) {
             header("location: ../login.php");
         }
     } else {

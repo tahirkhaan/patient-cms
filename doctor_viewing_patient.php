@@ -40,7 +40,7 @@ if (isset($_POST['submit_medication']))
   <div class="name">
     <p>Patient ID: <span id="pi"><?php echo $patient['id']; ?></span>
     </p>
-    <p>Patient Name: <span id="pn"><?php echo $patient['usersname']; ?></span>
+    <p>Patient Name: <span id="pn"><?php echo $patient['name']; ?></span>
     </p>
     
   </div>
