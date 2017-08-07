@@ -7,6 +7,11 @@ body {
 
     font-size: 10px;
 }
+#heading{
+    padding-top: 30px;
+    text-align: center;
+    font-weight: 700;
+}
 
 #btnn {
     background: rgba(148, 186, 101, 0.7);
