@@ -4,7 +4,7 @@ include "header.php"; ?>
 
 <body>
 <div class="container home">
-  <h2 style="padding-top: 30px;">Patient Information System</h2>
+  <h2 id="heading">Patient Information System</h2>
   <hr>
   <div class="row">
     <div class="col-md-12">
