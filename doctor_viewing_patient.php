@@ -1,31 +1,39 @@
 <?php
- include_once('includes/session_login.php'); 
-  include "header.php"; ?>
-<body>
-<div class="container mainone">
-  <h1 id="doctor">Doctor Viewing Patient</h1>
-<p  style="float: right; font-size: 25px;"><a href="includes/logout.php"><button type="button" class="btn btn-default">Logout</button></a></p>
-  <hr>
- <?php
  include ("config/conn.php");
-if (isset($_GET["patient_id"]))
+ include_once('includes/session_login.php'); 
+  include "header.php";
+  if (isset($_GET["patient_id"]))
 {
   $patient_id = $_GET["patient_id"];
 }
 
-$sql = "SELECT * FROM users where id = " . $patient_id;
+  $sql = "SELECT * FROM users where id = " . $patient_id;
 $result = mysqli_query($conn, $sql);
-$patient = mysqli_fetch_assoc($result);
+$patient = mysqli_fetch_assoc($result); 
+  ?>
+<body>
+<div class="container mainone">
+  <h1 id="doctor">Viewing Medication Details for  <span id="pn"><?php echo $patient['name']; ?></span></h1>
+<p  style="float: right; font-size: 25px;"><a href="includes/logout.php"><button type="button" class="btn btn-default">Logout</button></a></p>
+  <hr>
+ <?php
+
 $sql = "SELECT * FROM patient_readings where user_id = " . $patient_id;
 $result_patient_data = mysqli_query($conn, $sql);
-$sql = "SELECT * FROM patient_medication where user_id = " . $patient_id;
-$result = mysqli_query($conn, $sql);
-$patient_medication = mysqli_fetch_assoc($result);
 
 if (isset($_POST['submit_medication']))
 {
   $medication = $_POST['medication'];
+
+$sql = "SELECT * FROM patient_medication where user_id = " . $patient_id;
+$result = mysqli_query($conn, $sql);
+$rowcount=mysqli_num_rows($result);
+if($rowcount > 0){
   $sql = "UPDATE patient_medication SET medication='$medication' WHERE user_id=" . $patient_id;
+}else{
+       $sql =  "INSERT INTO patient_medication (medication, user_id)
+VALUES ('$medication', '$patient_id')";
+}
   if (mysqli_query($conn, $sql))
   {
     echo "Record updated successfully";
@@ -34,8 +42,12 @@ if (isset($_POST['submit_medication']))
   {
     echo "Error updating record: " . mysqli_error($conn);
   }
-  mysqli_close($conn);
-} ?>
+  
+}
+$sql = "SELECT * FROM patient_medication where user_id = " . $patient_id;
+$result = mysqli_query($conn, $sql);
+$patient_medication = mysqli_fetch_assoc($result);
+mysqli_close($conn); ?>
     
   <div class="name">
     <p>Patient ID: <span id="pi"><?php echo $patient['id']; ?></span>
