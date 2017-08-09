@@ -1,4 +1,5 @@
 <?php
+  include ("config/conn.php");
 include "header.php";
 
 if (!isset($_GET["type"])) {
@@ -25,7 +26,13 @@ if (!isset($_GET["type"])) {
   <div class="box">
     <form action="includes/process_login.php" method="post" class="LoginDp">
       <h2><?php echo $heading ?></h2>
-      <p>
+      <p id="error"> <?php
+          if (isset($_SESSION['errormsg'])) {
+              echo $_SESSION['errormsg'];
+               $_SESSION['errormsg'] = "";
+          }
+          ?></p>
+<p>
         <label for="Email" class="floatLabel"><?php echo $label ?></label>
         <input  name="email" type="text">
       </p>
