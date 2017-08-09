@@ -1,10 +1,10 @@
 <?php
 session_start(); 
-include "header.php"; ?>
-
+include "header.php";
+ ?>
 <body>
 <div class="container home">
-  <h2 id="heading">Patient Information System</h2>
+  <h2 style="padding-top: 30px; text-align:center;font-weight: 700;">Patient Information System</h2>
   <hr>
   <div class="row">
     <div class="col-md-12">
@@ -27,8 +27,6 @@ include "header.php"; ?>
         <a href="login.php?type=doctor" class="btn btn-success btn-lg btn-block btn-huge">Login as a Doctor</a>
         <br>
       </div>
-
-    </div>
+     </div>
   </div>
 <?php include "footer.php"; ?>
-
