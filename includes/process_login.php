@@ -1,5 +1,4 @@
 <?php
- session_start();
  include ("../config/conn.php");
 
 if (isset($_POST["patient_login"]) || isset($_POST["doctor_login"])) {
@@ -29,8 +28,12 @@ if (isset($_POST["patient_login"]) || isset($_POST["doctor_login"])) {
     }
     else
     {
-        echo "invalid user name or password ";
+        if(isset($_POST["patient_login"])){
+$_SESSION['errormsg'] =  "Invalid username or password";
+       header("location: ../login.php?type=patient");}
+if(isset($_POST["doctor_login"])){
+$_SESSION['errormsg'] =  "Invalid username or password";
+       header("location: ../login.php?type=doctor");}
       }
 }
 
-?>

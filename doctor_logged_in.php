@@ -1,5 +1,9 @@
-<?php include "header.php";
- include_once('includes/session_login.php'); ?>
+<?php 
+include ("config/conn.php");
+include_once('includes/session_login.php');
+include "header.php";
+
+ ?>
 <body>
     <div class="container main">
         <h1 id="doctor">Doctor Logged In</h1>
@@ -14,7 +18,7 @@
                         <th>Patient Name</th>
                 </thead>
      <?php 
-         include ("config/conn.php");
+        
         $sql ="SELECT * FROM `users` WHERE type='patient'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) 

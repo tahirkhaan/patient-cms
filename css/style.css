@@ -7,12 +7,10 @@ body {
 
     font-size: 10px;
 }
-#heading{
-    padding-top: 30px;
-    text-align: center;
-    font-weight: 700;
+#error{
+    color: red;
+    font-size: 15px;
 }
-
 #btnn {
     background: rgba(148, 186, 101, 0.7);
     box-shadow: 0 3px 0 0 rgba(123, 163, 73, 0.7);
@@ -20,7 +18,7 @@ body {
     border: none;
     color: #fff;
     font-size: 2em;
-    padding: 0.8em 135px;
+    padding: 0.8em 123px;
 }
 
 .main {
@@ -71,9 +69,6 @@ body {
     padding-left: 10px;
 }
 
-.medication {
-    padding: 15px;
-}
 
 #btn {
     float: right;
@@ -91,14 +86,6 @@ body {
 
 }
 
-/*form {
-  background: #fff;
-  padding: 4em 4em 2em;
-  max-width: 400px;
-  margin: 50px auto 0;
-  box-shadow: 0 0 1em #222;
-  border-radius: 2px;
-}*/
 
 form h2 {
     margin: 0 0 50px 0;
@@ -201,4 +188,3 @@ form label {
 .home {
     max-width: 70%;
 }
-
