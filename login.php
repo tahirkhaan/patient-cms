@@ -26,7 +26,7 @@ if (!isset($_GET["type"])) {
   <div class="box">
     <form action="includes/process_login.php" method="post" class="LoginDp">
       <h2><?php echo $heading ?></h2>
-      <p id="error"> <?php
+      <p class = "error"> <?php
           if (isset($_SESSION['errormsg'])) {
               echo $_SESSION['errormsg'];
                $_SESSION['errormsg'] = "";

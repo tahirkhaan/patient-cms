@@ -1,19 +1,19 @@
 <?php 
   include ("config/conn.php");
-  include_once('includes/session_login.php');
-  include "header.php";
+   include_once('includes/session_login.php');
+    include "header.php";
     ?>
 <body>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
       <center>
-        <h2 id="doctor" style="padding-top: 25px; ">Patient logged in</h2> </center>
+        <h2 id="doctor" style="padding-top: 25px; ">Wellcome <span id="pn"><?php echo $name; ?></span></h2> </center>
         <p  style="float: right; font-size: 25px;"><a href="includes/logout.php"><button type="button" class="btn btn-default">Logout</button></a></p>
         <hr>
         <h5 style="font-weight: bold;">Patient ID : <span id="pi"><?php  echo $idSession; ?></span>
             </h5>
-            <h5 style="font-weight: bold;">Patient Name : <span id="pi"><?php  echo $name; ?></span>
+            <h5 style="font-weight: bold;">Patient Name : <span id="pnn"><?php  echo $name; ?></span>
             </h5>
             <?php  
             $sql = "SELECT * FROM patient_readings where user_id = " . $idSession;
@@ -26,7 +26,8 @@
           <label for="comment">Medication:</label>
           <textarea class="form-control" rows="5" id="comment" readonly><?php echo $patient_medication['medication'];?></textarea>
         </div>
-		<h4>Record:</h4>
+
+        <h4>Record:</h4>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -52,4 +53,4 @@
       </table>
      </div>
   </div>
-<?php include "footer.php"; ?>
+<?php include "footer.php";

@@ -7,12 +7,13 @@ if (isset($_POST["patient_register"]) || isset($_POST["doctor_register"])) {
     $phoneNumber = $_POST['phone-number'];
     $email = $_POST['email'];
     $sql = "";
+
     if (isset($_POST["patient_register"])) {
         $type = 'patient';
     } else {
         $type = 'doctor';
     }
-    
+
 
     $sql = "SELECT * FROM users where email ='$email'";
     // Code for counting actual rows
@@ -30,9 +31,7 @@ if (isset($_POST["patient_register"]) || isset($_POST["doctor_register"])) {
                 $_SESSION["errormsg"] = "Email already exist";
             header("location: ../index.php");
         }
-        
-    } 
+
+    }
 
 }
-    
-

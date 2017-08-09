@@ -43,7 +43,7 @@ if (!isset($_GET["type"])) {
       <input id="patientemail" name="email" type="email" required>
     </p>
     <p>
-      <button name="<?php echo $submitType; ?>" id="btnn" class="btn">Register</button>
+      <button name="<?php echo $submitType; ?>" id="btnn" class="btn-huge">Register</button>
     </p>
   </form>
 </div>

@@ -3,6 +3,10 @@ body {
     font-family: sans-serif;
  /*   font-size: 10px;*/
 }
+.error{
+    color: red;
+    font-size: 15px;
+}
 .box{
 
     font-size: 10px;
@@ -29,7 +33,7 @@ body {
 }
 
 #doctor {
-    font-weight: 900;
+    font-weight: 700;
     text-align: center;
     color: #666666;
 }
@@ -65,17 +69,18 @@ body {
     padding-left: 36px
 }
 
+#pnn {
+    padding-left: 12px
+}
+
 #pn {
     padding-left: 10px;
 }
 
 
 #btn {
-    float: right;
+       margin-left: 460px;
 }
-
-
-
 .LoginDp {
     background: #fff;
     padding: 4em 4em 2em;
@@ -174,6 +179,7 @@ form label {
     margin: 40px auto 0;
     border-radius: 2px;
     padding-bottom: 40px;
+    text-align: center;
 }
 
 .btn-huge {
