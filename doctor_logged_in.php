@@ -7,6 +7,7 @@ include "header.php";
 <body>
     <div class="container main">
         <h1 id="doctor">Doctor Logged In</h1>
+          <p  style="float: left; font-size: 25px;"><a href=""><button type="button" class="btn btn-default">Change Number</button></a></p>
       <p  style="float: right; font-size: 25px;"><a href="includes/logout.php"><button type="button" class="btn btn-default">Logout</button></a></p>
         <hr> 
         <center>

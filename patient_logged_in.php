@@ -40,11 +40,11 @@
           <tbody>
            <?php while($patient = mysqli_fetch_assoc($result)) {?>
             <tr>
-		        <td><?php echo $patient['timestamp'];?></td>
-		        <td><?php echo $patient['pulse'];?></td>
-		        <td><?php echo $patient['bp1'].'/'.$patient['bp2'];?></td>
-		        <td><?php echo $patient['temp'];?></td>
-		        <td><?php echo $patient['glucose'];?></td>
+  		        <td><?php echo $patient['timestamp'];?></td>
+  		        <td><?php echo $patient['pulse'];?></td>
+  		        <td><?php echo $patient['bp1'].'/'.$patient['bp2'];?></td>
+  		        <td><?php echo $patient['temp'];?></td>
+  		        <td><?php echo $patient['glucose'];?></td>
             </tr>
             <?php }?>
           </tbody>
