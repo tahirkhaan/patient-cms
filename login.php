@@ -1,10 +1,12 @@
 <?php
+session_start();
 include("config/conn.php");
 
 if (!isset($_GET["type"])) {
-    $LoginType  = "patient";
+    $LoginType = "patient";
     $heading = "Patient Login";
     $label = "Patient Email";
+    $submitType = "patient_login";
 } else {
 
     $LoginType = $_GET['type'];
