@@ -9,23 +9,20 @@ include "header.php"; ?>
   <div class="row">
     <div class="col-md-12">
       <div class="err">
-         <p class = "error"> <?php
-          if (isset($_SESSION['errormsg'])) {
-              echo $_SESSION['errormsg'];
-               $_SESSION['errormsg'] = "";
-          }
-          ?></p>
+        <p class="error"> <?php
+            if (isset($_SESSION['errormsg'])) {
+                echo $_SESSION['errormsg'];
+                $_SESSION['errormsg'] = "";
+            }
+            ?></p>
       </div>
       <div class="buttons">
         <a href="register.php?type=patient" class="btn btn-success btn-lg btn-block btn-huge">Register as a Patient</a>
-        <br>
-        <a href="register.php?type=doctor" class="btn btn-success btn-lg btn-block btn-huge">Register as a Doctor</a>
-        <br>
-        <br>
+        <br/>
         <a href="login.php?type=patient" class="btn btn-success btn-lg btn-block btn-huge">Login as a Patient </a>
-        <br>
+        <br/>
         <a href="login.php?type=doctor" class="btn btn-success btn-lg btn-block btn-huge">Login as a Doctor</a>
-        <br>
+        <br/>
       </div>
 
     </div>
