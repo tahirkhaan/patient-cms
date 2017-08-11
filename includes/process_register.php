@@ -23,11 +23,11 @@ if (isset($_POST["patient_register"]) || isset($_POST["doctor_register"])) {
             header("location: ../login.php");
         }
         else {
-            $_SESSION["errormsg"] = "There was a problem registering, please try again";
+            $_SESSION["errormsg"] = "There was a problem while registering, please try again";
             header("location: ../index.php");
         }
     } else {
-        $_SESSION["errormsg"] = "Email already exist";
+        $_SESSION["errormsg"] = "Email already exists";
         header("location: ../index.php");
     }
 }
