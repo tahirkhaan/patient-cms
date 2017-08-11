@@ -8,14 +8,15 @@ include "header.php"; ?>
   <hr>
   <div class="row">
     <div class="col-md-12">
-      <div class="err">
-        <p class="error"> <?php
-            if (isset($_SESSION['errormsg'])) {
-                echo $_SESSION['errormsg'];
-                $_SESSION['errormsg'] = "";
-            }
-            ?></p>
+        
+      <div class="alert alert-success"> <?php
+          if (isset($_SESSION['errormsg'])) {
+              echo $_SESSION['errormsg'];
+              $_SESSION['errormsg'] = "";
+          }
+          ?>
       </div>
+      
       <div class="buttons">
         <a href="register.php?type=patient" class="btn btn-success btn-lg btn-block btn-huge">Register as a Patient</a>
         <br/>
