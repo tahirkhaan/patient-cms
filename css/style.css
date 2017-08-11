@@ -3,14 +3,20 @@ body {
     font-family: sans-serif;
  /*   font-size: 10px;*/
 }
+.error{
+    color: red;
+    font-size: 15px;
+}
 .box{
 
     font-size: 10px;
 }
-#error{
-    color: red;
-    font-size: 15px;
+#heading{
+    padding-top: 30px;
+    text-align: center;
+    font-weight: 700;
 }
+
 #btnn {
     background: rgba(148, 186, 101, 0.7);
     box-shadow: 0 3px 0 0 rgba(123, 163, 73, 0.7);
@@ -29,7 +35,7 @@ body {
 }
 
 #doctor {
-    font-weight: 900;
+    font-weight: 700;
     text-align: center;
     color: #666666;
 }
@@ -65,16 +71,17 @@ body {
     padding-left: 36px
 }
 
+#pnn {
+    padding-left: 12px
+}
+
 #pn {
     padding-left: 10px;
 }
 
-
-#btn {
-    float: right;
+.medication {
+    padding: 15px;
 }
-
-
 
 .LoginDp {
     background: #fff;
@@ -174,6 +181,7 @@ form label {
     margin: 40px auto 0;
     border-radius: 2px;
     padding-bottom: 40px;
+    text-align: center;
 }
 
 .btn-huge {
