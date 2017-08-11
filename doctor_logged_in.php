@@ -3,7 +3,7 @@ include_once('includes/session_login.php');
 include "header.php"; ?>
 <body>
 <div class="container main">
-  <h1 id="doctor">Welcome Dr. <span id="pn"><?php echo $name; ?></span></h1>
+  <h1 id="doctor">Welcome Dr. <?php echo $name; ?></h1>
   <p style="float: right; font-size: 25px;"><a href="includes/logout.php">
       <button type="button" class="btn btn-default">Logout</button>
     </a></p>
@@ -13,7 +13,7 @@ include "header.php"; ?>
   <table class="table table-hover table-bordered" id="doctable">
     <thead class="thead-inverse">
     <tr>
-      <th>Patient id</th>
+      <th>Patient ID</th>
       <th>Patient Name</th>
     </thead>
       <?php

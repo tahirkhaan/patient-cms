@@ -1,4 +1,7 @@
 <?php
+error_reporting( E_ALL );
+ini_set('display_errors', 1);
+
 include("config/conn.php");
 include_once('includes/session_login.php');
 if (isset($_GET["patient_id"])) {
