@@ -40,3 +40,12 @@ function saveDataInDatabase($userId, $pulse, $bp1, $bp2, $glucose, $temperature)
         return false;
     }
 }
+
+function sendDoctorSMS($phoneNo, $name, $id)
+{
+    $message = "Abnormal readings for patient ID = " + $id + ". Name = " + $name;
+    include_once __DIR__ . "/includes/send-sms.php";
+    $response = sendSMS($phone, $message);
+
+    return false;
+}

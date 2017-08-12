@@ -31,10 +31,17 @@ include "header.php";
     
     <?php
     if (isset($_SESSION['errormsg'])) {
-        echo '<div class="alert alert-danger">' . $_SESSION['errormsg'] . '</div>' ;
+        echo '<div class="alert alert-danger centered">' . $_SESSION['errormsg'] . '</div>' ;
         unset($_SESSION['errormsg']);        
     }
     ?>
+
+      <?php
+      if (isset($_SESSION['successmsg'])) {
+          echo '<div class="alert alert-success centered">' . $_SESSION['successmsg'] . '</div>' ;
+          unset($_SESSION['successmsg']);
+      }
+      ?>
 
     <p>
       <label for="Email" class="floatLabel"><?php echo $label ?></label>

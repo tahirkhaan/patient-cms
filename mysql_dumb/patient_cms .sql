@@ -84,15 +84,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `type`, `name`, `username`, `password`, `phone`, `email`) VALUES
-(110, 'patient', 'fahad', 'fahad611', 'admin', '1212', 'fahad@gmail.com'),
-(111, 'doctor', 'hairs', 'root', 'admin', '2323', 'patient@gmail.com'),
-(119, 'patient', 'shdjh', 'jhjkh', 'jkh', 'jhjkhjkhjk', 'kjjhh@gmail.com'),
-(121, 'patient', 'ljh', 'jlhjl', 'hj', 'hj', 'hjh@gmail.com'),
-(122, 'patient', 'bilal', 'bilal12', 'admin', '9989', 'bilal@gmail.com'),
-(123, 'doctor', 'ather', 'ather61', 'admin', '13131', 'ather@gmail.com'),
-(124, 'patient', 'azar', 'azar611', 'admin', '87878', 'azar@gmail.com'),
-(125, 'doctor', 'kalid', 'kalid611', 'admin', '9897', 'kalid@gmail.com');
-
+(110, 'patient', 'fahad', 'fahad611', 'admin', '1212', 'fahad@gmail.com');
 --
 -- Indexes for dumped tables
 --

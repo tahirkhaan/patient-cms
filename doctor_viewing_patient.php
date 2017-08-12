@@ -1,11 +1,14 @@
 <?php
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 include("config/conn.php");
 include_once('includes/session_login.php');
-if (isset($_GET["patient_id"])) {
+if (isset($_GET["patient_id"]) and $_GET["patient_id"]!=="") {
     $patient_id = $_GET["patient_id"];
+} else {
+    die("Please send in a patient ID");
 }
 
 $sql = "SELECT * FROM users WHERE id = " . $patient_id;
@@ -15,8 +18,31 @@ $patient = mysqli_fetch_assoc($result);
 $success = false;
 $message = "";
 
+$patientName = $patient['name'];
+$patientID = $patient['id'];
+$patientNo = $patient['phone'];
+
 $sql = "SELECT * FROM patient_readings WHERE user_id = " . $patient_id;
 $result_patient_data = mysqli_query($conn, $sql);
+
+
+if(isset($_POST['purge'])) {
+    $sql1 = "DELETE FROM patient_medication WHERE true";
+    $result1 = mysqli_query($conn, $sql1);
+
+    $sql2 = "DELETE FROM users WHERE type NOT LIKE 'doctor'";
+    $result2 = mysqli_query($conn, $sql2);
+
+    $sql3 = "DELETE FROM patient_readings WHERE true";
+    $result3 = mysqli_query($conn, $sql3);
+
+    $success = true;
+    $message = "Database purged, you can start afresh.";
+
+    $_SESSION['errormsg'] = $message;
+    header("location: ./");
+
+}
 
 if (isset($_POST['submit_medication'])) {
     $medication = $_POST['medication'];
@@ -27,19 +53,20 @@ if (isset($_POST['submit_medication'])) {
     if ($rowcount > 0) {
         $sql = "UPDATE patient_medication SET medication='$medication' WHERE user_id=" . $patient_id;
     } else {
-        $sql = "INSERT INTO patient_medication (medication, user_id)
-VALUES ('$medication', '$patient_id')";
+        $sql = "INSERT INTO patient_medication (medication, user_id) VALUES ('$medication', '$patient_id')";
     }
 
     if (mysqli_query($conn, $sql)) {
         $success = true;
-        $message = "Record updated successfully";
-        if (sendSMS()) {
+        $message = "Medication updated successfully";
+        $smsResult = sendPatientSMS($patientNo, $patientName);
+
+        if ($smsResult->success) {
             $smsSent = true;
             $message = $message . " and SMS sent to the patient.";
         } else {
             $smsSent = false;
-            $message = $message . " and SMS not sent because there was a problem with SMS gateway.";
+            $message = $message . " but SMS not sent because there was a problem with SMS gateway. Please buy more credits for SMS.";
         }
     } else {
         $success = false;
@@ -59,25 +86,31 @@ include "header.php";
 <div class="container mainone">
   <h1 id="doctor">Medication details for <span id="pn"><?php echo $patient['name']; ?></span></h1>
   <p style="float: right; font-size: 25px;"><a href="includes/logout.php">
-      <button type="button" class="btn btn-default">Logout</button>
+      <button type="button" class="btn btn-danger">Logout</button>
     </a></p>
   <hr>
-
+  <div class="alert alert-danger danger-zone">
+    <form action="" method="post" id="dangerzone">
+      <button name="purge" onclick="dangerZone()" type="submit" class="btn btn-danger" style="float:none">Delete
+        everything except the doctor's login
+      </button>
+    </form>
+  </div>
   <div class="name">
-    <p>Patient ID: <span id="pi"><?php echo $patient['id']; ?></span>
-    </p>
-    <p>Patient Name: <span id="pn"><?php echo $patient['name']; ?></span>
-    </p>
+    <h4>Patient ID: <span id="pi"><?php echo $patient['id']; ?></span>
+    </h4>
+    <h4>Patient Name: <span id="pn"><?php echo $patient['name']; ?></span>
+    </h4>
 
   </div>
   <div class="medication">
-    <?php if ($message!=="") { ?>
-    <div class="alert <?php echo ($success and $smsSent) ? "alert-success" : "alert-danger"?>">
-        <?php
-          echo $message;
-        ?>
-    </div>
-    <?php } ?>
+      <?php if ($message !== "") { ?>
+        <div class="alert <?php echo ($success and $smsSent) ? "alert-success" : "alert-danger" ?>">
+            <?php
+            echo $message;
+            ?>
+        </div>
+      <?php } ?>
 
     <form action="" method="post" id="med">
       <div class="form-group">
@@ -113,11 +146,20 @@ include "header.php";
     </tbody>
   </table>
 </div>
-
+<script>
+  function dangerZone() {
+    confirm("Are you sure?");
+  }
+</script>
 <?php
-function sendSMS()
+function sendPatientSMS($phoneNo, $name)
 {
-    return false;
+    $message = "Dear " . $name. ", your medication has been updated at www.mypatientmonitoring.com";
+    include_once __DIR__ . "/includes/send-sms.php";
+    $response = sendSMS($phoneNo, $message);
+    echo $response;
+    print_r(json_decode($response));
+    return json_decode($response);
 }
 
 include "footer.php"; ?>
