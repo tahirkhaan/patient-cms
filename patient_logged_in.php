@@ -44,7 +44,12 @@ include "header.php";
         <tbody>
         <?php while ($patient = mysqli_fetch_assoc($result)) { ?>
           <tr>
-            <td><?php echo $patient['timestamp']; ?></td>
+            <td>
+                <?php
+                date_default_timezone_set('asia/karachi');
+                echo date('d/m/Y h:i:s A', strtotime($patient['timestamp']));
+                ?>
+            </td>
             <td><?php echo $patient['pulse']; ?></td>
             <td><?php echo $patient['bp1'] . '/' . $patient['bp2']; ?></td>
             <td><?php echo $patient['temp']; ?></td>

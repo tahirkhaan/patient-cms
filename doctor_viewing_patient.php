@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 
 include("config/conn.php");
 include_once('includes/session_login.php');
-if (isset($_GET["patient_id"]) and $_GET["patient_id"]!=="") {
+if (isset($_GET["patient_id"]) and $_GET["patient_id"] !== "") {
     $patient_id = $_GET["patient_id"];
 } else {
     die("Please send in a patient ID");
@@ -26,14 +26,14 @@ $sql = "SELECT * FROM patient_readings WHERE user_id = " . $patient_id;
 $result_patient_data = mysqli_query($conn, $sql);
 
 
-if(isset($_POST['purge'])) {
-    $sql1 = "DELETE FROM patient_medication WHERE true";
+if (isset($_POST['purge'])) {
+    $sql1 = "DELETE FROM patient_medication WHERE TRUE";
     $result1 = mysqli_query($conn, $sql1);
 
     $sql2 = "DELETE FROM users WHERE type NOT LIKE 'doctor'";
     $result2 = mysqli_query($conn, $sql2);
 
-    $sql3 = "DELETE FROM patient_readings WHERE true";
+    $sql3 = "DELETE FROM patient_readings WHERE TRUE";
     $result3 = mysqli_query($conn, $sql3);
 
     $success = true;
@@ -136,7 +136,10 @@ include "header.php";
     <tbody>
     <?php while ($patient = mysqli_fetch_assoc($result_patient_data)) { ?>
       <tr>
-        <td><?php echo $patient['timestamp']; ?></td>
+        <td><?php
+            date_default_timezone_set('asia/karachi');
+            echo date('d/m/Y h:i:s A', strtotime($patient['timestamp']));
+            ?></td>
         <td><?php echo $patient['pulse']; ?></td>
         <td><?php echo $patient['bp1'] . '/' . $patient['bp2']; ?></td>
         <td><?php echo $patient['temp']; ?></td>
@@ -154,7 +157,7 @@ include "header.php";
 <?php
 function sendPatientSMS($phoneNo, $name)
 {
-    $message = "Dear " . $name. ", your medication has been updated at www.mypatientmonitoring.com";
+    $message = "Dear " . $name . ", your medication has been updated at www.mypatientmonitoring.com";
     include_once __DIR__ . "/includes/send-sms.php";
     $response = sendSMS($phoneNo, $message);
     echo $response;

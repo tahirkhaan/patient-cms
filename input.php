@@ -10,9 +10,9 @@ if (!isset($_GET) || !empty($_GET) && !empty($_GET['user_id']) && !empty($_GET['
     $temperature = $_GET['temp'];
 
     if (saveDataInDatabase($userId, $pulse, $bp1, $bp2, $glucose, $temperature)) {
-        echo "Success";
+        return json_encode(array('success' => true));
     } else {
-        echo "Fail";
+        return json_encode(array('success' => false));
     }
 } else {
     echo "Please send the params i.e userid,  pulse = 'pulse' and BP as bp1 and bp2, glucose as glucose, temperature as temp";
@@ -32,20 +32,43 @@ function saveDataAsCsv($userId, $pulse, $bp1, $bp2, $glucose, $temperature)
 function saveDataInDatabase($userId, $pulse, $bp1, $bp2, $glucose, $temperature)
 {
     include("config/conn.php");
-    // TODO Set it up and debug this
+
     $sql = "insert into patient_readings (user_id, pulse, bp1, bp2, glucose,temp) values ($userId, $pulse, $bp1, $bp2, $glucose, $temperature)";
+
+    /*
+        Pulse : Between 60 to 100 is normal
+        BP1 = Below 120 is normal
+        BP2 = Below 80 is normal
+        Glucose : Below 200 is normal
+        Temperature: Below 38 is normal
+    */
+
+
     if (mysqli_query($conn, $sql)) {
+        if (!($pulse >= 60 and $pulse <= 100 and $bp1 < 120 and $bp2 < 80 and $glucose < 200 and $temperature < 38)) {
+            $sql = "SELECT * FROM users WHERE type LIKE 'doctor'";
+            $result = mysqli_query($conn, $sql);
+            $doctor = mysqli_fetch_assoc($result);
+
+            // Get doctor's phone number
+
+            // $doctorName = $doctor['name'];
+            // $doctorID = $doctor['id'];
+            $doctorNo = $doctor['phone'];
+
+            // Send SMS alert
+            sendDoctorSMS($doctorNo, $userId);
+        }
         return true;
     } else {
         return false;
     }
 }
 
-function sendDoctorSMS($phoneNo, $name, $id)
+function sendDoctorSMS($phoneNo, $patientID)
 {
-    $message = "Abnormal readings for patient ID = " + $id + ". Name = " + $name;
+    $message = "Alert: New data uploaded to website. Abnormal values detected. Please check data for Patient ID : " . $patientID;
     include_once __DIR__ . "/includes/send-sms.php";
-    $response = sendSMS($phone, $message);
-
-    return false;
+    $response = sendSMS($phoneNo, $message);
+    return json_decode($response);
 }
