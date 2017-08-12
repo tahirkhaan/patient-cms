@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include("config/conn.php");
 include_once('includes/session_login.php');
 if (isset($_GET["patient_id"])) {
@@ -68,57 +71,53 @@ include "header.php";
 
   </div>
   <div class="medication">
-      <? if ($message !== "") { ?>
-    <div class="alert <?php echo ($success and $smsSent) ? "alert-success" : "alert-danger" ?>">
+    <?php if ($message!=="") { ?>
+    <div class="alert <?php echo ($success and $smsSent) ? "alert-success" : "alert-danger"?>">
         <?php
-        echo $message;
+          echo $message;
         ?>
     </div>
+    <?php } ?>
+
+    <form action="" method="post" id="med">
+      <div class="form-group">
+        <h4>Medication:</h4>
+        <textarea name="medication" class="form-control" rows="5"
+                  id="medication"><?php echo $patient_medication['medication']; ?></textarea>
+        <br>
+
+        <button name="submit_medication" type="submit" class="btn btn-success" style="float: right">Update Medication
+        </button>
+    </form>
+    <br>
   </div>
-    <?php
-    }
-    ?>
-
-  <form action="" method="post" id="med">
-    <div class="form-group">
-      <h4>Medication:</h4>
-      <textarea name="medication" class="form-control" rows="5"
-                id="medication"><?php echo $patient_medication['medication']; ?></textarea>
-      <br>
-
-      <button name="submit_medication" type="submit" class="btn btn-success" style="float: right">Update Medication
-      </button>
-  </form>
-  <br>
-</div>
-<h4>Record:</h4>
-<table class="table table-hover table-bordered" cellspacing="0">
-  <thead class="thead-inverse">
-  <th>Time</th>
-  <th>Pulse</th>
-  <th>B.P</th>
-  <th>Temperature</th>
-  <th>Glucose</th>
-  </thead>
-  <tbody>
-  <?php while ($patient = mysqli_fetch_assoc($result_patient_data)) { ?>
-    <tr>
-      <td><?php echo $patient['timestamp']; ?></td>
-      <td><?php echo $patient['pulse']; ?></td>
-      <td><?php echo $patient['bp1'] . '/' . $patient['bp2']; ?></td>
-      <td><?php echo $patient['temp']; ?></td>
-      <td><?php echo $patient['glucose']; ?></td>
-    </tr>
-  <?php } ?>
-  </tbody>
-</table>
+  <h4>Record:</h4>
+  <table class="table table-hover table-bordered" cellspacing="0">
+    <thead class="thead-inverse">
+    <th>Time</th>
+    <th>Pulse</th>
+    <th>B.P</th>
+    <th>Temperature</th>
+    <th>Glucose</th>
+    </thead>
+    <tbody>
+    <?php while ($patient = mysqli_fetch_assoc($result_patient_data)) { ?>
+      <tr>
+        <td><?php echo $patient['timestamp']; ?></td>
+        <td><?php echo $patient['pulse']; ?></td>
+        <td><?php echo $patient['bp1'] . '/' . $patient['bp2']; ?></td>
+        <td><?php echo $patient['temp']; ?></td>
+        <td><?php echo $patient['glucose']; ?></td>
+      </tr>
+    <?php } ?>
+    </tbody>
+  </table>
 </div>
 
 <?php
 function sendSMS()
 {
-    return true;
+    return false;
 }
 
-include "footer.php";
-?>
+include "footer.php"; ?>
