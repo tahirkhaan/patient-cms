@@ -180,11 +180,9 @@ form label {
     background-color: #fff;
     margin-top: 70px;
     border-radius: 14px;
-    width: 800px;
 }
 
 .buttons {
-    max-width: 40%;
     margin: 40px auto 0;
     border-radius: 2px;
     padding-bottom: 40px;
@@ -201,5 +199,5 @@ form label {
 }
 
 .home {
-    max-width: 70%;
+    max-width: 95%;
 }
