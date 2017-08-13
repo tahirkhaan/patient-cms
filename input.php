@@ -15,7 +15,7 @@ if (!isset($_GET) || !empty($_GET) && !empty($_GET['user_id']) && !empty($_GET['
         return json_encode(array('success' => false));
     }
 } else {
-    echo json_encode(array("err"=>"Please send the params i.e userid,  pulse = 'pulse' and BP as bp1 and bp2, glucose as glucose, temperature as temp"));
+    echo json_encode(array("err"=>"Please send the params i.e 'user_id',  pulse = 'pulse' and BP as 'bp1' and 'bp2', glucose as 'glucose', temperature as 'temp'"));
 }
 
 function saveDataAsCsv($userId, $pulse, $bp1, $bp2, $glucose, $temperature)
