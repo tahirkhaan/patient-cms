@@ -6,6 +6,7 @@ if (isset($_SESSION['email'])) {
     $row = mysqli_fetch_array($ses_sql, MYSQLI_ASSOC);
     $login_session = $row['email'];
     $name = $row['name'];
+    $phone = $row['phone'];
     $type = $row['type'];
     $idSession = $row['id'];
 } else {

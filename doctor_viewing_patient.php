@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 include("config/conn.php");
 include_once('includes/session_login.php');
 if (isset($_GET["patient_id"]) and $_GET["patient_id"] !== "") {
@@ -49,8 +46,8 @@ if (isset($_POST['submit_medication'])) {
 
     $sql = "SELECT * FROM patient_medication WHERE user_id = " . $patient_id;
     $result = mysqli_query($conn, $sql);
-    $rowcount = mysqli_num_rows($result);
-    if ($rowcount > 0) {
+    $rowCount = mysqli_num_rows($result);
+    if ($rowCount > 0) {
         $sql = "UPDATE patient_medication SET medication='$medication' WHERE user_id=" . $patient_id;
     } else {
         $sql = "INSERT INTO patient_medication (medication, user_id) VALUES ('$medication', '$patient_id')";
@@ -61,7 +58,7 @@ if (isset($_POST['submit_medication'])) {
         $message = "Medication updated successfully";
         $smsResult = sendPatientSMS($patientNo, $patientName);
 
-        if ($smsResult->success) {
+        if ($smsResult->success === 'true') {
             $smsSent = true;
             $message = $message . " and SMS sent to the patient.";
         } else {
@@ -97,19 +94,30 @@ include "header.php";
     </form>
   </div>
   <div class="name">
-    <h4>Patient ID: <span id="pi"><?php echo $patient['id']; ?></span>
+    <h4>Patient ID: <span id="pi"><?php printf("%03d", $patient['id']); ?></span>
     </h4>
     <h4>Patient Name: <span id="pn"><?php echo $patient['name']; ?></span>
     </h4>
 
   </div>
   <div class="medication">
-      <?php if ($message !== "") { ?>
-        <div class="alert <?php echo ($success and $smsSent) ? "alert-success" : "alert-danger" ?>">
+      <?php
+      if (!$success and $message!=="") { ?>
+
+        <div class="alert alert-danger">
             <?php
             echo $message;
             ?>
         </div>
+
+      <?php } else if ($message !== "") { ?>
+
+        <div class="alert <?php echo ($success and $smsSent) ? "alert-success" : "alert-warning" ?>">
+            <?php
+            echo $message;
+            ?>
+        </div>
+
       <?php } ?>
 
     <form action="" method="post" id="med">
@@ -160,8 +168,6 @@ function sendPatientSMS($phoneNo, $name)
     $message = "Dear " . $name . ", your medication has been updated at www.mypatientmonitoring.com";
     include_once __DIR__ . "/includes/send-sms.php";
     $response = sendSMS($phoneNo, $message);
-    echo $response;
-    print_r(json_decode($response));
     return json_decode($response);
 }
 

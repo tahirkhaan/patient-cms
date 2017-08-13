@@ -2,7 +2,7 @@
 
 if (!isset($_GET) || !empty($_GET) && !empty($_GET['user_id']) && !empty($_GET['pulse']) && !empty($_GET['bp1']) && !empty($_GET['bp2']) && !empty($_GET['temp']) && !empty($_GET['glucose'])) {
 
-    $userId = $_GET['user_id'];
+    $userId = $str = ltrim($_GET['user_id'], '0');
     $pulse = $_GET['pulse'];
     $bp1 = $_GET['bp1'];
     $bp2 = $_GET['bp2'];
@@ -67,6 +67,7 @@ function saveDataInDatabase($userId, $pulse, $bp1, $bp2, $glucose, $temperature)
 
 function sendDoctorSMS($phoneNo, $patientID)
 {
+    return;
     $message = "Alert: New data uploaded to website. Abnormal values detected. Please check data for Patient ID : " . $patientID;
     include_once __DIR__ . "/includes/send-sms.php";
     $response = sendSMS($phoneNo, $message);

@@ -13,7 +13,7 @@ include "header.php";
           <button type="button" class="btn btn-default">Logout</button>
         </a></p>
       <hr>
-      <h5 style="font-weight: bold;">Patient ID : <span id="pi"><?php echo $idSession; ?></span>
+      <h5 style="font-weight: bold;">Patient ID : <span id="pi"><?php printf("%03d", $idSession); ?></span>
       </h5>
       <h5 style="font-weight: bold;">Patient Name : <span id="pnn"><?php echo $name; ?></span>
       </h5>

@@ -1,7 +1,5 @@
 <?php
 
-//sendSMS('+923349529394', 'Hello Fahad');
-
 function sendSMS($phone, $message)
 {
     include_once __DIR__ . "/../config/sms-api.php";
