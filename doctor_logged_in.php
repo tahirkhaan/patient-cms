@@ -17,7 +17,7 @@ if (isset($_POST['update_phone_doctor']) and $_POST['phone_number'] !== "") {
 include "header.php"; ?>
 <body>
 <div class="container main">
-  <h1 id="doctor">Welcome Dr. <?php echo $name; ?></h1>
+  <h1 id="doctor">Welcome Doctor</h1>
   <p style="float: right; font-size: 25px;"><a href="includes/logout.php">
       <button type="button" class="btn btn-danger">Logout</button>
     </a></p>

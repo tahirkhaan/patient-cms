@@ -67,7 +67,6 @@ function saveDataInDatabase($userId, $pulse, $bp1, $bp2, $glucose, $temperature)
 
 function sendDoctorSMS($phoneNo, $patientID)
 {
-    return;
     $message = "Alert: New data uploaded to website. Abnormal values detected. Please check data for Patient ID : " . $patientID;
     include_once __DIR__ . "/includes/send-sms.php";
     $response = sendSMS($phoneNo, $message);
