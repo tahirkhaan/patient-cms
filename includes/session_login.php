@@ -9,6 +9,7 @@ if (isset($_SESSION['email'])) {
     $phone = $row['phone'];
     $type = $row['type'];
     $idSession = $row['id'];
+    $_SESSION['type'] = $row['type'];
 } else {
     header("location:index.php");
 }

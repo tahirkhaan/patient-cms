@@ -10,7 +10,7 @@ include "header.php";
 
       <h2 id="doctor" style="padding-top: 25px; ">Welcome <span id="pn"><?php echo $name; ?></span></h2></center>
       <p style="float: right; font-size: 25px;"><a href="includes/logout.php">
-          <button type="button" class="btn btn-default">Logout</button>
+          <button type="button" class="btn btn-danger">Logout</button>
         </a></p>
       <hr>
       <h5 style="font-weight: bold;">Patient ID : <span id="pi"><?php printf("%03d", $idSession); ?></span>
