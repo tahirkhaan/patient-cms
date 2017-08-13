@@ -47,7 +47,7 @@ include "header.php";
             <td>
                 <?php
                 date_default_timezone_set('asia/karachi');
-                echo date('d/m/Y h:i:s A', strtotime($patient['timestamp']));
+                echo date('d/m/Y h:i:s A', strtotime($patient['timestamp'] . '+5 hours'));
                 ?>
             </td>
             <td><?php echo $patient['pulse']; ?></td>

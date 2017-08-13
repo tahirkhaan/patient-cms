@@ -37,15 +37,15 @@ function saveDataInDatabase($userId, $pulse, $bp1, $bp2, $glucose, $temperature)
 
     /*
         Pulse : Between 60 to 100 is normal
-        BP1 = Below 120 is normal
-        BP2 = Below 80 is normal
+        BP1 = Below 120 or equal is normal
+        BP2 = Below 80 or equal is normal
         Glucose : Below 200 is normal
         Temperature: Below 38 is normal
     */
 
 
     if (mysqli_query($conn, $sql)) {
-        if (!($pulse >= 60 and $pulse <= 100 and $bp1 < 120 and $bp2 < 80 and $glucose < 200 and $temperature < 38)) {
+        if (!($pulse >= 60 and $pulse <= 100 and $bp1 <= 120 and $bp2 <= 80 and $glucose < 200 and $temperature < 38)) {
             $sql = "SELECT * FROM users WHERE type LIKE 'doctor'";
             $result = mysqli_query($conn, $sql);
             $doctor = mysqli_fetch_assoc($result);
@@ -57,7 +57,7 @@ function saveDataInDatabase($userId, $pulse, $bp1, $bp2, $glucose, $temperature)
             $doctorNo = $doctor['phone'];
 
             // Send SMS alert
-            sendDoctorSMS($doctorNo, $userId);
+            echo json_encode(sendDoctorSMS($doctorNo, $userId));
         }
         return true;
     } else {
