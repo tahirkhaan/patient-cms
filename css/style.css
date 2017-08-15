@@ -183,21 +183,40 @@ form label {
 }
 
 .buttons {
-    margin: 40px auto 0;
+    margin: 82px auto 0;
     border-radius: 2px;
     padding-bottom: 40px;
     text-align: center;
+    float: right;
 }
 
 .btn-huge {
     padding-top: 20px;
     padding-bottom: 30px;
-    background: rgba(148, 186, 101, 0.7);
-    box-shadow: 0 3px 0 0 rgba(123, 163, 73, 0.7);
     cursor: pointer;
-    text-shadow: 0 1px #68B25B;
+    text-shadow: 0 1px #EEEEEE;
+    color: black;
+    background: rgba(255,255,255,0.9);
 }
 
 .home {
-    max-width: 95%;
+    max-width: 820px;
+    background: url(../img/bg.jpg);
+    background-position: top left;
+    background-repeat: no-repeat;
+    height: 500px;
+    background-size: contain;
+}
+
+@media only screen and (max-width: 734px) {
+    .home {
+       background:none;     
+    }    
+    .buttons {
+        margin: 100px auto 0;
+        border-radius: 2px;
+        padding-bottom: 40px;
+        text-align: center;
+    }
+
 }

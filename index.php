@@ -10,10 +10,6 @@ include "header.php"; ?>
 <body>
 <div class="container home">
 
-  <h2 style="padding-top: 30px; text-align:center;font-weight: 700;">Patient Information System</h2>
-
-  <hr>
-
   <div class="row">
 
     <div class="col-md-12 col-lg-12">
