@@ -13,6 +13,7 @@ if (isset($_POST["patient_register"]) || isset($_POST["doctor_register"])) {
         $type = 'patient';
     } else {
         $type = 'doctor';
+        die("Doctor registration blocked. Please use your existing doctor login");
     }
 
     if (isUnique($email)) {
@@ -20,14 +21,15 @@ if (isset($_POST["patient_register"]) || isset($_POST["doctor_register"])) {
         $sql = "insert into users (name, username, password, phone, email, type)  values 
         ('$name','$userName','$userPass','$phoneNumber','$email','$type')";
         if (mysqli_query($conn, $sql)) {
+            $_SESSION["successmsg"] = "Registration complete successfully. Please login below";
             header("location: ../login.php");
         }
         else {
-            $_SESSION["errormsg"] = "There was a problem registering, please try again";
+            $_SESSION["errormsg"] = "There was a problem while registering, please try again";
             header("location: ../index.php");
         }
     } else {
-        $_SESSION["errormsg"] = "Email already exist";
+        $_SESSION["errormsg"] = "Email already exists";
         header("location: ../index.php");
     }
 }

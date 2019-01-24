@@ -10,10 +10,10 @@ include "header.php";
 
       <h2 id="doctor" style="padding-top: 25px; ">Welcome <span id="pn"><?php echo $name; ?></span></h2></center>
       <p style="float: right; font-size: 25px;"><a href="includes/logout.php">
-          <button type="button" class="btn btn-default">Logout</button>
+          <button type="button" class="btn btn-danger">Logout</button>
         </a></p>
       <hr>
-      <h5 style="font-weight: bold;">Patient ID : <span id="pi"><?php echo $idSession; ?></span>
+      <h5 style="font-weight: bold;">Patient ID : <span id="pi"><?php printf("%03d", $idSession); ?></span>
       </h5>
       <h5 style="font-weight: bold;">Patient Name : <span id="pnn"><?php echo $name; ?></span>
       </h5>
@@ -44,7 +44,12 @@ include "header.php";
         <tbody>
         <?php while ($patient = mysqli_fetch_assoc($result)) { ?>
           <tr>
-            <td><?php echo $patient['timestamp']; ?></td>
+            <td>
+                <?php
+                date_default_timezone_set('asia/karachi');
+                echo date('d/m/Y h:i:s A', strtotime($patient['timestamp'] . '+5 hours'));
+                ?>
+            </td>
             <td><?php echo $patient['pulse']; ?></td>
             <td><?php echo $patient['bp1'] . '/' . $patient['bp2']; ?></td>
             <td><?php echo $patient['temp']; ?></td>

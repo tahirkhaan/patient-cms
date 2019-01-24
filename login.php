@@ -28,12 +28,21 @@ include "header.php";
 <div class="box">
   <form action="includes/process_login.php" method="post" class="LoginDp">
     <h2><?php echo $heading ?></h2>
-    <p class="error"> <?php
-        if (isset($_SESSION['errormsg'])) {
-            echo $_SESSION['errormsg'];
-            $_SESSION['errormsg'] = "";
-        }
-        ?></p>
+    
+    <?php
+    if (isset($_SESSION['errormsg'])) {
+        echo '<div class="alert alert-danger centered">' . $_SESSION['errormsg'] . '</div>' ;
+        unset($_SESSION['errormsg']);        
+    }
+    ?>
+
+      <?php
+      if (isset($_SESSION['successmsg'])) {
+          echo '<div class="alert alert-success centered">' . $_SESSION['successmsg'] . '</div>' ;
+          unset($_SESSION['successmsg']);
+      }
+      ?>
+
     <p>
       <label for="Email" class="floatLabel"><?php echo $label ?></label>
       <input name="email" type="text">

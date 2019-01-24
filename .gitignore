@@ -49,3 +49,5 @@ fabric.properties
 *.csv
 
 config/conn.php
+config/sms-api.php
+vendor
